@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.dao.ManagerDao">
+<select id="findAll" resultType="manager">
+    select * from manager
+</select>
+
+    <select id="findById" parameterType="String" resultType="manager">
+        select * from manager where id=#{id}
+    </select>
+
+    <update id="update" parameterType="manager">
+        update manager set name=#{name},age=#{age},birthday=#{birthday},sex=#{sex} where id=#{id}
+    </update>
+
+    <insert id="insert" parameterType="manager">
+        insert into manager values(#{id},#{name},#{age},#{birthday},#{sex})
+    </insert>
+    <delete id="del" parameterType="String">
+        delete from manager where id=#{id}
+    </delete>
+</mapper>
